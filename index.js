@@ -11,7 +11,7 @@ Device.isIos = function() {
 }
 
 Device.isAndroid = function() {
-	return window.navigator.userAgent.match( /Android/i ) !== null;
+	return !Device.isWindows() && window.navigator.userAgent.match( /Android/i ) !== null;
 }
 
 Device.isWindows = function() {
@@ -19,7 +19,7 @@ Device.isWindows = function() {
 }
 
 Device.isDesktop = function() {
-	return !self.isIos() && !self.isAndroid() && !self.isWindows();
+	return !Device.isIos() && !Device.isAndroid() && !Device.isWindows();
 }
 
 module.exports = Device;
