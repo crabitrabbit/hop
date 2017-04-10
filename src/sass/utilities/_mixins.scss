@@ -1,0 +1,166 @@
+// This file contains all application-wide Sass mixins.
+
+/// Event wrapper
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+
+// Gradients
+@mixin gradient( $from, $to ) {
+	background-color: $from;
+	background-image: -webkit-gradient(linear, left top, left bottom, $from, $to); // Chrome, Safari 4+ */
+	background-image: -webkit-linear-gradient(top, $from, $to); // Chrome 10+, iOS 5+, Safari 5.1+ */
+	background-image: -moz-linear-gradient(top, $from, $to); // Firefox 3.6-15 */
+	background-image: -o-linear-gradient(top, $from, $to); // Opera 11.10-12.00 */
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+
+
+
+// Border radius
+@mixin borderRadius( $radius: $baseRadius ) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+	background-clip: padding-box;
+}
+
+
+// Border radius
+@mixin borderTopRadius( $radius: $baseRadius ) {
+	-webkit-border-top-left-radius: $radius;
+	-moz-border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
+	-webkit-border-top-right-radius: $radius;
+	-moz-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+	background-clip: padding-box;
+}
+
+
+// Border radius
+@mixin borderBottomRadius( $radius: $baseRadius ) {
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+	-webkit-border-bottom-right-radius: $radius;
+	-moz-border-bottom-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	background-clip: padding-box;
+}
+
+
+
+// Font Size with REM
+@mixin fontSize( $size: $baseFontSize ) {
+	font-size: ( $size * 10 ) + px;
+	font-size: $size + rem;
+}
+
+
+
+// Box shadows
+@mixin shadows( $shadows... ) {
+	-webkit-box-shadow: $shadows;
+	-moz-box-shadow: $shadows;
+	box-shadow: $shadows;
+}
+
+
+
+// Transitions
+@mixin transition( $ms: 300ms ) {
+	-webkit-transition: -webkit-transform $ms ease;
+	-moz-transition: -moz-transform $ms ease;
+	transition: transform $ms ease;
+}
+
+
+
+// Transforms
+@mixin transform( $x:0, $y:0, $z:0 ) {
+	-webkit-transform: translate3d($x, $y, $z);
+	-moz-transform: translate3d($x, $y, $z);
+	transform: translate3d($x, $y, $z);
+}
+
+
+
+// Min-width media query
+@mixin bp-min( $device-width ) {
+	@media screen and ( min-width: $device-width ) {
+		@content;
+	}
+}
+
+
+
+// Max-width media query
+@mixin bp-max( $device-width ) {
+	@media screen and ( max-width: $device-width - 1 ) {
+		@content;
+	}
+}
+
+
+
+// Animation keyframes
+@mixin keyframes( $animation-name ) {
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+	@-moz-keyframes $animation-name {
+		@content;
+	}
+	@-ms-keyframes $animation-name {
+		@content;
+	}
+	@-o-keyframes $animation-name {
+		@content;
+	}
+	@keyframes $animation-name {
+		@content;
+	}
+}
+
+
+
+// Animation
+@mixin animation( $str ) {
+	-webkit-animation: #{$str};
+	-moz-animation: #{$str};
+	-ms-animation: #{$str};
+	-o-animation: #{$str};
+	animation: #{$str};
+}
+
+
+
+// Cross browser opacity
+@mixin opacity( $opacity ) {
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); // IE8
+}

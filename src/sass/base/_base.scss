@@ -1,0 +1,20 @@
+// Set up a decent box model on the root element
+html {
+  box-sizing: border-box;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
+*, *::before, *::after {
+  box-sizing: inherit;
+} 
+
+// Basic styles for links
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}

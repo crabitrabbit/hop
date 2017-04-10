@@ -1,0 +1,41 @@
+{
+  "name": "@crabitrabbit/hop",
+  "version": "0.0.1",
+  "description": "Device type detection library based on the useragent string ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec -r jsdom-global/register src/tests",
+    "ci": "node_modules/gulp/bin/gulp.js ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crabitrabbit/hop.git"
+  },
+  "keywords": [
+    "hop",
+    "device",
+    "detection",
+    "javascript"
+  ],
+  "author": "crabitrabbit <crabitrabbit@craigharvie.me> (http://craigharvie.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crabitrabbit/hop/issues"
+  },
+  "homepage": "https://github.com/crabitrabbit/hop#readme",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.13.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-util": "^3.0.8",
+    "jsdom": "9.12.0",
+    "jsdom-global": "2.1.1",
+    "mocha": "^3.2.0"
+  }
+}
